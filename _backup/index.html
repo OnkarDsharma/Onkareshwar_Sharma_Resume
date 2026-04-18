@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onkareshwar Sharma | Full Stack Developer</title>
+    <meta name="description" content="Portfolio of Onkareshwar Sharma — Full Stack Developer specializing in AI/ML, Web Development, and SaaS platforms. CSE student at IIIT Naya Raipur.">
+    <meta name="keywords" content="Onkareshwar Sharma, Full Stack Developer, Portfolio, AI, Machine Learning, Web Development, React, Python, Django">
+    <meta name="author" content="Onkareshwar Sharma">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Cursor Glow Effect -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>OS<span class="logo-bracket">/&gt;</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero" id="hero">
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="hero-grid-bg"></div>
+        <div class="hero-content">
+
+            <h1 class="hero-name">
+                <span class="hero-greeting">Hello, I'm</span>
+                <span class="hero-fullname">Onkareshwar<br>Sharma</span>
+            </h1>
+            <div class="hero-title-wrapper">
+                <span class="hero-title-label">Full Stack Developer</span>
+                <span class="hero-title-divider">•</span>
+                <span class="hero-title-label">AI/ML Enthusiast</span>
+            </div>
+            <p class="hero-tagline">
+                I build <span class="highlight">intelligent systems</span> and <span class="highlight">scalable web platforms</span> 
+                that transform complex problems into elegant, user-centric solutions.
+            </p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary" id="heroViewWork">
+                    <span>View My Work</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="btn btn-secondary" id="heroGetInTouch">
+                    <span>Get in Touch</span>
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="#experience" class="btn btn-outline" id="heroDownloadResume">
+                    <span>Download Resume</span>
+                    <i class="fas fa-download"></i>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="3">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Projects Built</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="10">0</span><span class="stat-plus">+</span>
+                    <span class="stat-label">Technologies</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="2">0</span>
+                    <span class="stat-label">Competitions Won</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== PROJECTS SECTION ==================== -->
+    <section class="section projects" id="projects">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-code"></i> Portfolio</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">A showcase of full-stack applications, AI systems, and SaaS platforms I've engineered.</p>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1: CSC Sarthi -->
+                <div class="project-card" id="projectCscSarthi">
+                    <div class="project-card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/OnkarDsharma" target="_blank" rel="noopener noreferrer" class="project-link-icon" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">CSC Sarthi</h3>
+                    <p class="project-label">AI-Powered Pre-Submission Assistant</p>
+                    <p class="project-desc">
+                        An AI-assisted validation system for 30+ government services with ~87% accuracy. 
+                        Features machine learning risk prediction, robust OCR document verification pipeline, 
+                        WhatsApp chatbot pre-check workflow, and a full-stack Django platform with cloud-hosted 
+                        ML API — reducing rejection errors by ~40%.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">OCR</span>
+                        <span class="tech-tag">Render</span>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">87%</span>
+                            <span class="metric-label">Accuracy</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">30+</span>
+                            <span class="metric-label">Services</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">~40%</span>
+                            <span class="metric-label">Error Reduction</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Cross-Age Face Verification -->
+                <div class="project-card" id="projectFaceVerification">
+                    <div class="project-card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-face-smile"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/OnkarDsharma" target="_blank" rel="noopener noreferrer" class="project-link-icon" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Cross-Age Face Verification</h3>
+                    <p class="project-label">Computer Vision System</p>
+                    <p class="project-desc">
+                        A dual-purpose computer vision system for cross-age identity verification and age regression. 
+                        Fine-tuned ResNet50 for age prediction (MAE ~2.4) and implemented Facenet512 for face verification, 
+                        achieving 93.6% ROC-AUC and 85.3% accuracy with real-time user image uploads.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">DeepFace</span>
+                        <span class="tech-tag">Flask</span>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">93.6%</span>
+                            <span class="metric-label">ROC-AUC</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">85.3%</span>
+                            <span class="metric-label">Accuracy</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">~2.4</span>
+                            <span class="metric-label">MAE</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: LiteLLM -->
+                <div class="project-card" id="projectLiteLLM">
+                    <div class="project-card-glow"></div>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/OnkarDsharma" target="_blank" rel="noopener noreferrer" class="project-link-icon" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">LiteLLM</h3>
+                    <p class="project-label">AI Access SaaS Platform</p>
+                    <p class="project-desc">
+                        A micro-subscription SaaS platform selling short-term LLM access passes for Claude Sonnet 
+                        and GPT-4o at $20/month. Features hybrid rate-limiting with Redis TTL, three-tier storage 
+                        architecture (PostgreSQL, MongoDB, S3/Cloudflare R2), Stripe Webhook integration, 
+                        and prompt caching with SSE streaming.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Redis</span>
+                        <span class="tech-tag">Stripe</span>
+                    </div>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-value">100K</span>
+                            <span class="metric-label">Token Ceiling</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">3-Tier</span>
+                            <span class="metric-label">Architecture</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">SSE</span>
+                            <span class="metric-label">Streaming</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SKILLS SECTION ==================== -->
+    <section class="section skills" id="skills">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-layer-group"></i> Tech Stack</span>
+                <h2 class="section-title">Skills & Technologies</h2>
+                <p class="section-subtitle">The tools and technologies I use to bring ideas to life.</p>
+            </div>
+
+            <div class="skills-grid">
+                <!-- Languages -->
+                <div class="skill-category" id="skillLanguages">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                        <h3>Languages</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-code"></i>
+                            <span>C++</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-c"></i>
+                            <span>C</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>SQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js-square"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Machine Learning -->
+                <div class="skill-category" id="skillML">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Machine Learning</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fas fa-network-wired"></i>
+                            <span>TensorFlow</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-fire"></i>
+                            <span>Keras</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-eye"></i>
+                            <span>OpenCV</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Scikit-Learn</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-table"></i>
+                            <span>Pandas</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-calculator"></i>
+                            <span>NumPy</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Matplotlib</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Development -->
+                <div class="skill-category" id="skillWebDev">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Web Development</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
+                            <span>React.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-node-js"></i>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-flask"></i>
+                            <span>Flask</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-server"></i>
+                            <span>REST APIs</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Postman</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools & Platforms -->
+                <div class="skill-category" id="skillTools">
+                    <div class="skill-category-header">
+                        <div class="skill-category-icon">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                        <h3>Tools & Platforms</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-linux"></i>
+                            <span>Linux</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-code"></i>
+                            <span>VS Code</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-aws"></i>
+                            <span>Render/AWS</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-stripe"></i>
+                            <span>Stripe</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section class="section about" id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-user"></i> About Me</span>
+                <h2 class="section-title">Who I Am</h2>
+                <p class="section-subtitle">More than just code — the person behind the projects.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-content">
+                    <div class="about-card" id="aboutBackground">
+                        <div class="about-card-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>My Background</h3>
+                        <p>
+                            I'm a B.Tech student in Computer Science & Engineering at 
+                            <strong>IIIT Naya Raipur</strong> (Class of 2028) with a deep passion for building 
+                            things that matter. From AI-powered government service platforms to SaaS applications, 
+                            I thrive at the intersection of machine learning and full-stack web development. 
+                            My journey began with curiosity about how software can solve real-world problems — 
+                            and it hasn't stopped since.
+                        </p>
+                    </div>
+
+                    <div class="about-card" id="aboutApproach">
+                        <div class="about-card-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>My Approach</h3>
+                        <p>
+                            I believe great software starts with understanding the problem deeply before writing 
+                            a single line of code. I follow an iterative approach — build, measure, learn, and refine. 
+                            Whether it's designing a three-tier storage architecture or fine-tuning a neural network, 
+                            I focus on creating solutions that are robust, scalable, and user-centric. 
+                            Every project is an opportunity to push boundaries and deliver real impact.
+                        </p>
+                    </div>
+
+                    <div class="about-card" id="aboutCreative">
+                        <div class="about-card-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3>Beyond the Code</h3>
+                        <p>
+                            When I'm not coding, you'll find me with a paintbrush or a sketchpad. As the 
+                            <strong>Head of the Art Society (Indradhanush)</strong> at IIIT Naya Raipur, 
+                            I lead a team of 50 students in organizing cultural events and workshops. 
+                            I'm deeply passionate about painting, visual design, and creative expression — 
+                            skills that uniquely inform my approach to UI/UX and product design. 
+                            Art teaches me to see patterns, colors, and beauty in unexpected places.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="about-visual">
+                    <div class="about-avatar-wrapper">
+                        <div class="avatar-ring"></div>
+                        <div class="avatar-placeholder">
+                            <i class="fas fa-user"></i>
+                            <span>OS</span>
+                        </div>
+                    </div>
+                    <div class="about-fun-facts">
+                        <div class="fun-fact">
+                            <i class="fas fa-palette"></i>
+                            <span>Artist & Painter</span>
+                        </div>
+                        <div class="fun-fact">
+                            <i class="fas fa-trophy"></i>
+                            <span>2x Hackathon Winner</span>
+                        </div>
+                        <div class="fun-fact">
+                            <i class="fas fa-users"></i>
+                            <span>Leads 50+ Students</span>
+                        </div>
+                        <div class="fun-fact">
+                            <i class="fas fa-pen-fancy"></i>
+                            <span>Visual Designer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== EXPERIENCE SECTION ==================== -->
+    <section class="section experience" id="experience">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-briefcase"></i> Journey</span>
+                <h2 class="section-title">Experience & Education</h2>
+                <p class="section-subtitle">My academic journey, achievements, and milestones along the way.</p>
+            </div>
+
+            <div class="experience-layout">
+                <!-- Timeline -->
+                <div class="timeline">
+                    <!-- Education -->
+                    <div class="timeline-item" id="timelineEducation">
+                        <div class="timeline-marker">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-badge">Education</div>
+                            <h3>B.Tech in Computer Science & Engineering</h3>
+                            <h4>International Institute of Information Technology (IIIT), Naya Raipur</h4>
+                            <span class="timeline-date">July 2024 – May 2028</span>
+                            <p>CGPA: 7.79 | Relevant Coursework: Data Structures & Algorithms, DBMS, Linear Algebra, Discrete Mathematics, Calculus, Probability, Optimization.</p>
+                        </div>
+                    </div>
+
+                    <!-- Hackathon Win 1 -->
+                    <div class="timeline-item" id="timelineHackathon">
+                        <div class="timeline-marker achievement">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-badge achievement">Achievement</div>
+                            <h3>Winner — E-Summit 2026 Hackathon</h3>
+                            <h4>Organized by E-Cell, IIIT Naya Raipur</h4>
+                            <span class="timeline-date">March 2026</span>
+                            <p>Developed and pitched CSC Sarthi, an AI-powered pre-submission assistant for government services, demonstrating real-time form validation and document verification to the judging panel.</p>
+                        </div>
+                    </div>
+
+                    <!-- Case Study Win -->
+                    <div class="timeline-item" id="timelineCaseStudy">
+                        <div class="timeline-marker achievement">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-badge achievement">Achievement</div>
+                            <h3>Winner — Xcelerate 2026 Case Study Competition</h3>
+                            <h4>Organized by Money Matters, IIIT Naya Raipur</h4>
+                            <span class="timeline-date">February 2026</span>
+                            <p>Proposed a strategic "Three Pillars Solution" for a Central India Manufacturing Hub, successfully defending the proposal and handling counter-questions from the judging panel.</p>
+                        </div>
+                    </div>
+
+                    <!-- Art Society -->
+                    <div class="timeline-item" id="timelineArtSociety">
+                        <div class="timeline-marker volunteer">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-badge volunteer">Volunteer</div>
+                            <h3>Head of Art Society — Indradhanush</h3>
+                            <h4>IIIT Naya Raipur</h4>
+                            <span class="timeline-date">August 2025 – Present</span>
+                            <p>Leading a team of 50 students in organizing campus-wide cultural events and workshops, fostering creativity and artistic expression across the institute.</p>
+                        </div>
+                    </div>
+
+                    <!-- Freelance -->
+                    <div class="timeline-item" id="timelineFreelance">
+                        <div class="timeline-marker freelance">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-badge freelance">Freelance</div>
+                            <h3>Freelance Web Development</h3>
+                            <h4>Independent Projects</h4>
+                            <span class="timeline-date">2024 – Present</span>
+                            <p>Taken on freelance projects building responsive websites and web applications for clients, applying full-stack development skills with modern frameworks and clean, maintainable code.</p>
+                        </div>
+                    </div>
+
+                    <!-- Media Matrix -->
+                    <div class="timeline-item" id="timelineMediaMatrix">
+                        <div class="timeline-marker volunteer">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-badge volunteer">Volunteer</div>
+                            <h3>Sponsorship Team Member</h3>
+                            <h4>Media Matrix 2024</h4>
+                            <span class="timeline-date">September 2024 – November 2024</span>
+                            <p>Collaborated with corporate sponsors to secure funding and partnerships for the college fest, developing negotiation and business communication skills.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resume Download -->
+                <div class="resume-download-section">
+                    <div class="resume-card" id="resumeDownloadCard">
+                        <div class="resume-card-content">
+                            <i class="fas fa-file-pdf"></i>
+                            <h3>Download My Resume</h3>
+                            <p>Get a detailed look at my qualifications, projects, and skills.</p>
+                            <a href="resume.pdf" download class="btn btn-primary" id="downloadResumeBtn">
+                                <span>Download Resume</span>
+                                <i class="fas fa-download"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section class="section contact" id="contact">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-paper-plane"></i> Contact</span>
+                <h2 class="section-title">Let's Connect</h2>
+                <p class="section-subtitle">Have a project in mind? Want to collaborate? I'd love to hear from you.</p>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card" id="contactEmail">
+                        <div class="contact-card-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-card-content">
+                            <h3>Email</h3>
+                            <a href="mailto:onkareshwarsharma7om@gmail.com">onkareshwarsharma7om@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-card" id="contactLinkedin">
+                        <div class="contact-card-icon linkedin">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <div class="contact-card-content">
+                            <h3>LinkedIn</h3>
+                            <a href="https://www.linkedin.com/in/onkareshwar-sharma-b1a40132a/" target="_blank" rel="noopener noreferrer">Onkareshwar Sharma</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-card" id="contactGithub">
+                        <div class="contact-card-icon github">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="contact-card-content">
+                            <h3>GitHub</h3>
+                            <a href="https://github.com/OnkarDsharma" target="_blank" rel="noopener noreferrer">OnkarDsharma</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-card" id="contactPhone">
+                        <div class="contact-card-icon phone">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-card-content">
+                            <h3>Phone</h3>
+                            <a href="tel:+919472950539">+91 9472950539</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="formName">Name</label>
+                            <input type="text" id="formName" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="formEmail">Email</label>
+                            <input type="email" id="formEmail" name="email" placeholder="your@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="formMessage">Message</label>
+                            <textarea id="formMessage" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full" id="formSubmitBtn">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-bracket">&lt;</span>OS<span class="logo-bracket">/&gt;</span>
+                </div>
+                <p class="footer-text">Designed & Built by Onkareshwar Sharma</p>
+                <div class="footer-socials">
+                    <a href="mailto:onkareshwarsharma7om@gmail.com" aria-label="Email" id="footerEmail"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/onkareshwar-sharma-b1a40132a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" id="footerLinkedin"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/OnkarDsharma" target="_blank" rel="noopener noreferrer" aria-label="GitHub" id="footerGithub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Onkareshwar Sharma. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
