@@ -431,17 +431,11 @@ export default function Home() {
           <div className="rounded-[2rem] border border-white/10 bg-black/35 p-6 backdrop-blur-md">
             <h3 className="text-xl font-semibold text-white">Start the conversation</h3>
             <p className="mt-4 text-base leading-8 text-white/68">
-              The fastest path is email or LinkedIn. If you want to review my
+              The fastest path is LinkedIn. If you want to review my
               work first, you can also open my GitHub profile or download my
               resume directly.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a
-                href="mailto:onkareshwarsharma7om@gmail.com"
-                className="rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-zinc-200"
-              >
-                Email Me
-              </a>
               <a
                 href="/Onkareshwar_Sharma_Resume.pdf"
                 download
