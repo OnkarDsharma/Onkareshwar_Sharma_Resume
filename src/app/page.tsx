@@ -61,6 +61,45 @@ const projectCards: AnimatedProjectCardItem[] = [
   },
 ];
 
+const openSourceCards: AnimatedProjectCardItem[] = [
+  {
+    id: 101,
+    title: "Onyx",
+    category: "Open Source Contributor — Jul 2026",
+    stack: ["React", "TypeScript", "Python", "GitLab API"],
+    summary:
+      "Engineered a GitLab connector branch override, extending configuration interfaces and threading target references through the API retrieval layer.",
+    problem:
+      "The GitLab connector had no support for branch overrides, limiting flexibility when pulling target references from repositories.",
+    solution:
+      "Extended React/TypeScript configuration interfaces and threaded target references through python-gitlab API retrieval methods, implemented robust GitlabGetError exception handling, and authored unit tests validating Git blob URL construction.",
+    role:
+      "Remote open source contributor — designed the override mechanism, handled error cases, and covered the change with unit tests.",
+    impact: ["React/TypeScript", "python-gitlab API", "Unit tested"],
+    github: "https://github.com/onyx-dot-app/onyx",
+    image:
+      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=80",
+  },
+  {
+    id: 102,
+    title: "tt-metal",
+    category: "Tenstorrent — Open Source Contributor — Jun 2026",
+    stack: ["C++", "C", "Kernel Development"],
+    summary:
+      "Merged a contribution modernizing kernel-level C/C++ type declarations across Quasar and Wormhole hardware components.",
+    problem:
+      "Legacy kernel-level C/C++ type declarations across hardware components needed modernizing for long-term maintainability.",
+    solution:
+      "Updated type declarations across Quasar and Wormhole components, collaborating directly with maintainers through issue discussion and code review before the change was merged.",
+    role:
+      "Remote open source contributor — proposed and implemented the type modernization, iterated based on maintainer review.",
+    impact: ["Kernel-level C/C++", "Cross-component", "Maintainer reviewed"],
+    github: "https://github.com/tenstorrent/tt-metal",
+    image:
+      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1400&q=80",
+  },
+];
+
 const skillGroups = [
   {
     title: "Frontend",
@@ -211,23 +250,44 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="projects" className="relative z-20 mx-auto max-w-7xl px-6 py-24">
-        <div className="mb-12 max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/45">
-            Projects
-          </p>
-          <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-            Strong builds over filler projects
-          </h2>
-          <p className="mt-4 text-base leading-8 text-white/60">
-            These are the projects that best represent how I think: solving a
-            real problem, choosing the right stack, and shipping something with
-            clear technical depth and measurable outcomes.
-          </p>
-        </div>
 
-        <AnimatedCardStack projects={projectCards} />
+
+      <section id="projects" className="relative z-20 mx-auto max-w-7xl px-6 py-24">
+        <div className="grid gap-20 lg:grid-cols-2 lg:gap-12">
+          <div>
+            <div className="mb-12 max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/45">
+                Projects
+              </p>
+              <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+                Built to solve real problems
+              </h2>
+              <p className="mt-4 text-base leading-8 text-white/60">
+                AI systems, production software, and products designed for impact, not tutorials or clones.
+              </p>
+            </div>
+
+            <AnimatedCardStack projects={projectCards} />
+          </div>
+
+          <div id="open-source">
+            <div className="mb-12 max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/45">
+                Open Source
+              </p>
+              <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+                Code shipped to production
+              </h2>
+              <p className="mt-4 text-base leading-8 text-white/60">
+                Contributing to real-world codebases, collaborating with maintainers, and shipping reviewed changes.
+              </p>
+            </div>
+
+            <AnimatedCardStack projects={openSourceCards} />
+          </div>
+        </div>
       </section>
+
 
       <section id="skills" className="relative z-20 border-y border-white/10 bg-black/12">
         <div className="mx-auto max-w-7xl px-6 py-24">
@@ -355,7 +415,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 py-24">
           <div className="mb-12 max-w-3xl">
             <p className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Experience timeline
+              Highlights
             </p>
           </div>
 

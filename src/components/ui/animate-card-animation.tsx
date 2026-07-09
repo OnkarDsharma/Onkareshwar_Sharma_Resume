@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, GitBranch, Layers3 } from "lucide-react";
+import { GitBranch, Layers3, X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export interface AnimatedProjectCardItem {
   id: number;
@@ -22,29 +24,6 @@ export interface AnimatedProjectCardItem {
 interface AnimatedCardStackProps {
   projects: AnimatedProjectCardItem[];
 }
-
-interface StackCard {
-  id: number;
-  projectIndex: number;
-}
-
-const positionStyles = [
-  { scale: 1, y: 20 },
-  { scale: 0.95, y: -12 },
-  { scale: 0.9, y: -42 },
-];
-
-const exitAnimation = {
-  y: 380,
-  scale: 1,
-  opacity: 0.96,
-};
-
-const enterAnimation = {
-  y: -18,
-  scale: 0.9,
-  opacity: 0.9,
-};
 
 function ProjectCardContent({ project }: { project: AnimatedProjectCardItem }) {
   return (
@@ -145,124 +124,131 @@ function ProjectCardContent({ project }: { project: AnimatedProjectCardItem }) {
   );
 }
 
-function AnimatedCard({
-  card,
-  index,
-  project,
-  isAnimating,
-}: {
-  card: StackCard;
-  index: number;
-  project: AnimatedProjectCardItem;
-  isAnimating: boolean;
-}) {
-  const { scale, y } = positionStyles[index] ?? positionStyles[2];
-  const zIndex = index === 0 && isAnimating ? 10 : 3 - index;
-  const exitAnim = index === 0 ? exitAnimation : undefined;
-  const initialAnim = index === 2 ? enterAnimation : undefined;
+const stackOffsets = [
+  "z-30 hover:-translate-y-6",
+  "translate-x-12 translate-y-10 z-20 grayscale-[60%] hover:-translate-y-2 hover:grayscale-0",
+  "translate-x-24 translate-y-20 z-10 grayscale-[60%] hover:translate-y-9 hover:grayscale-0",
+];
 
+function PreviewCard({
+  project,
+  index,
+  onOpen,
+}: {
+  project: AnimatedProjectCardItem;
+  index: number;
+  onOpen: (
+    project: AnimatedProjectCardItem,
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => void;
+}) {
   return (
-    <motion.div
-      key={card.id}
-      initial={initialAnim}
-      animate={{ y, scale, opacity: 1 }}
-      exit={exitAnim}
-      transition={{
-        type: "spring",
-        duration: 0.75,
-        bounce: 0,
-      }}
-      style={{
-        zIndex,
-        left: "50%",
-        x: "-50%",
-        bottom: 0,
-      }}
-      className="absolute flex h-[620px] w-full max-w-[920px] items-center justify-center overflow-hidden rounded-[2rem] border border-white/10 bg-black/75 p-3 shadow-[0_40px_120px_rgba(0,0,0,0.45)] backdrop-blur-xl will-change-transform"
+    <button
+      type="button"
+      onClick={(event) => onOpen(project, event)}
+      className={cn(
+        "[grid-area:stack] relative flex h-48 w-full max-w-[26rem] -skew-y-[8deg] flex-col justify-between rounded-xl border-2 border-white/10 bg-black/70 px-6 py-5 text-left backdrop-blur-sm transition-all duration-500 ease-out hover:z-40 hover:skew-y-0 hover:border-cyan-300/40 hover:bg-black/85",
+        stackOffsets[index]
+      )}
     >
-      <div className="h-full w-full rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.045),rgba(255,255,255,0.02))] p-4 sm:p-5">
-        <ProjectCardContent project={project} />
+      <div className="flex items-center gap-2">
+        <span className="rounded-full bg-cyan-500/20 p-2">
+          <Layers3 className="h-4 w-4 text-cyan-300" />
+        </span>
+        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-cyan-200/80">
+          {project.category}
+        </p>
       </div>
-    </motion.div>
+      <p className="text-2xl font-semibold text-white">{project.title}</p>
+      <p className="line-clamp-2 text-sm text-white/55">{project.summary}</p>
+    </button>
   );
 }
 
 export default function AnimatedCardStack({
   projects,
 }: AnimatedCardStackProps) {
-  const visibleProjects = useMemo(() => projects.slice(0, 3), [projects]);
-  const [cards, setCards] = useState<StackCard[]>(
-    visibleProjects.map((_, index) => ({
-      id: index + 1,
-      projectIndex: index,
-    }))
-  );
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [nextId, setNextId] = useState(4);
+  const [openProject, setOpenProject] =
+    useState<AnimatedProjectCardItem | null>(null);
+  const [origin, setOrigin] = useState({ x: 50, y: 50 });
+  const [mounted, setMounted] = useState(false);
+  const visibleProjects = projects.slice(0, 3);
 
-  if (visibleProjects.length < 3) {
-    return null;
-  }
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-  const handleAnimate = () => {
-    if (isAnimating) {
-      return;
-    }
+  useEffect(() => {
+    if (!openProject) return;
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [openProject]);
 
-    setIsAnimating(true);
-
-    const nextProjectIndex =
-      (cards[cards.length - 1]?.projectIndex + 1) % visibleProjects.length;
-
-    setCards([
-      ...cards.slice(1),
-      {
-        id: nextId,
-        projectIndex: nextProjectIndex,
-      },
-    ]);
-    setNextId((prev) => prev + 1);
-
-    window.setTimeout(() => {
-      setIsAnimating(false);
-    }, 750);
+  const handleOpen = (
+    project: AnimatedProjectCardItem,
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    setOrigin({
+      x: ((rect.left + rect.width / 2) / window.innerWidth) * 100,
+      y: ((rect.top + rect.height / 2) / window.innerHeight) * 100,
+    });
+    setOpenProject(project);
   };
 
-  const activeProject = visibleProjects[cards[0]?.projectIndex ?? 0];
+  const smoothEase = [0.16, 1, 0.3, 1] as const;
+
+  const modal = (
+    <AnimatePresence>
+      {openProject && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.25, ease: smoothEase }}
+          onClick={() => setOpenProject(null)}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.35 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.4 }}
+            transition={{ duration: 0.5, ease: smoothEase }}
+            style={{ transformOrigin: `${origin.x}% ${origin.y}%` }}
+            onClick={(event) => event.stopPropagation()}
+            className="relative max-h-[90vh] w-full max-w-[920px] overflow-y-auto rounded-[2rem] border border-white/10 bg-black/90 p-4 shadow-[0_40px_120px_rgba(0,0,0,0.5)] backdrop-blur-xl sm:p-5"
+          >
+            <button
+              type="button"
+              onClick={() => setOpenProject(null)}
+              className="absolute right-4 top-4 z-10 rounded-full border border-white/15 bg-black/50 p-2 text-white/70 transition hover:bg-black/80 hover:text-white"
+            >
+              <X className="h-4 w-4" />
+            </button>
+            <ProjectCardContent project={openProject} />
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
 
   return (
-    <div className="flex w-full flex-col items-center justify-center">
-      <div className="relative h-[700px] w-full overflow-hidden pt-12">
-        <AnimatePresence initial={false}>
-          {cards.map((card, index) => (
-            <AnimatedCard
-              key={card.id}
-              card={card}
-              index={index}
-              project={visibleProjects[card.projectIndex]}
-              isAnimating={isAnimating}
-            />
-          ))}
-        </AnimatePresence>
+    <>
+      <div className="grid [grid-template-areas:'stack'] place-items-center py-16">
+        {visibleProjects.map((project, index) => (
+          <PreviewCard
+            key={project.id}
+            project={project}
+            index={index}
+            onOpen={handleOpen}
+          />
+        ))}
       </div>
 
-      <div className="relative z-10 -mt-px flex w-full max-w-[920px] flex-wrap items-center justify-between gap-4 border-t border-white/10 py-5">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/40">
-            Current project
-          </p>
-          <p className="mt-1 text-sm text-white/72">{activeProject.title}</p>
-        </div>
-
-        <button
-          onClick={handleAnimate}
-          disabled={isAnimating}
-          className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-white/15 bg-white px-5 text-sm font-semibold text-black transition hover:bg-zinc-200 disabled:cursor-not-allowed disabled:opacity-70"
-        >
-          Next Project
-          <ArrowRight className="h-4 w-4" />
-        </button>
-      </div>
-    </div>
+      {mounted ? createPortal(modal, document.body) : null}
+    </>
   );
 }
