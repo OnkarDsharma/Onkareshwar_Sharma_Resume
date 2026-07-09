@@ -21,10 +21,30 @@ const projectCards: AnimatedProjectCardItem[] = [
     impact: ["87% validation accuracy", "30+ services", "~40% fewer rejection errors"],
     github: "https://github.com/GAURAV-1313/csc",
     image:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1537498425277-c283d32ef9db?q=80&w=1178&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=format&fit=crop&w=1400&q=80",
   },
+  
   {
     id: 2,
+    title: "LiteLLM",
+    category: "AI Access SaaS Platform",
+    stack: ["React", "Node.js", "PostgreSQL", "MongoDB", "Redis", "Stripe"],
+    summary:
+      "Created a micro-subscription SaaS product for short-term premium LLM access, balancing user experience, payments, storage, and API cost control.",
+    problem:
+      "Premium LLM subscriptions can be too expensive for short-term or lightweight usage patterns.",
+    solution:
+      "I built hybrid rate limiting, a three-tier storage architecture, Stripe webhook provisioning, prompt caching, and SSE streaming for responsive chat delivery.",
+    role:
+      "Built the product architecture, billing flow, storage design, cost-control logic, and real-time chat pipeline.",
+    impact: ["100K token ceiling", "3-tier storage design", "SSE streaming responses"],
+    github: "https://github.com/OnkarDsharma/LiteLLM",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80",
+  },
+
+  {
+    id: 3,
     title: "Cross-Age Face Verification System",
     category: "Computer Vision + Full Stack Delivery",
     stack: ["Python", "TensorFlow", "DeepFace", "Flask"],
@@ -40,24 +60,6 @@ const projectCards: AnimatedProjectCardItem[] = [
     github: "https://github.com/OnkarDsharma/Cross-Age-Face-Verification",
     image:
       "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80",
-  },
-  {
-    id: 3,
-    title: "LiteLLM",
-    category: "AI Access SaaS Platform",
-    stack: ["React", "Node.js", "PostgreSQL", "MongoDB", "Redis", "Stripe"],
-    summary:
-      "Created a micro-subscription SaaS product for short-term premium LLM access, balancing user experience, payments, storage, and API cost control.",
-    problem:
-      "Premium LLM subscriptions can be too expensive for short-term or lightweight usage patterns.",
-    solution:
-      "I built hybrid rate limiting, a three-tier storage architecture, Stripe webhook provisioning, prompt caching, and SSE streaming for responsive chat delivery.",
-    role:
-      "Built the product architecture, billing flow, storage design, cost-control logic, and real-time chat pipeline.",
-    impact: ["100K token ceiling", "3-tier storage design", "SSE streaming responses"],
-    github: "https://github.com/OnkarDsharma/LiteLLM",
-    image:
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1400&q=80",
   },
 ];
 
