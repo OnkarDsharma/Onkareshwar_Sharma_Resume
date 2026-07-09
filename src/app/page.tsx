@@ -113,17 +113,9 @@ const experienceItems = [
     label: "Leadership",
     title: "Head of Art Society (Indradhanush)",
     organization: "IIIT Naya Raipur",
-    period: "August 2025 - Present",
+    period: "August 2025 - May 2026",
     details:
       "Lead a team of 50 students while organizing campus-wide cultural events and workshops.",
-  },
-  {
-    label: "Volunteer",
-    title: "Sponsorship Team Member",
-    organization: "Media Matrix 2024",
-    period: "September 2024 - November 2024",
-    details:
-      "Worked with corporate sponsors to secure funding and partnerships for the college fest.",
   },
 ];
 
