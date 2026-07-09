@@ -207,16 +207,6 @@ export default function Home() {
                 Download Resume
               </a>
             </div>
-            <div className="mt-14 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-3xl border border-white/10 bg-black/35 p-5 backdrop-blur-md">
-                <p className="text-3xl font-bold text-white">3</p>
-                <p className="mt-2 text-sm text-white/55">Core portfolio projects</p>
-              </div>
-              <div className="rounded-3xl border border-white/10 bg-black/35 p-5 backdrop-blur-md">
-                <p className="text-3xl font-bold text-white">2</p>
-                <p className="mt-2 text-sm text-white/55">Major competition wins</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
