@@ -76,7 +76,7 @@ const openSourceCards: AnimatedProjectCardItem[] = [
     solution:
       "Extended React/TypeScript configuration interfaces and threaded target references through python-gitlab API retrieval methods, implemented robust GitlabGetError exception handling, and authored unit tests validating Git blob URL construction.",
     role:
-      "Remote open source contributor — designed the override mechanism, handled error cases, and covered the change with unit tests.",
+      "Remote open source contributor: designed the override mechanism, handled error cases, and covered the change with unit tests.",
     impact: ["React/TypeScript", "python-gitlab API", "Unit tested"],
     github: "https://github.com/onyx-dot-app/onyx",
     image:
@@ -94,7 +94,7 @@ const openSourceCards: AnimatedProjectCardItem[] = [
     solution:
       "Updated type declarations across Quasar and Wormhole components, collaborating directly with maintainers through issue discussion and code review before the change was merged.",
     role:
-      "Remote open source contributor — proposed and implemented the type modernization, iterated based on maintainer review.",
+      "Remote open source contributor: proposed and implemented the type modernization, iterated based on maintainer review.",
     impact: ["Kernel-level C/C++", "Cross-component", "Maintainer reviewed"],
     github: "https://github.com/tenstorrent/tt-metal",
     image:
