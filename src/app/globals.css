@@ -3,48 +3,48 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #09090b;
-  --card: #ffffff;
-  --card-foreground: #09090b;
-  --popover: #ffffff;
-  --popover-foreground: #09090b;
-  --primary: #18181b;
-  --primary-foreground: #fafafa;
-  --secondary: #f4f4f5;
-  --secondary-foreground: #18181b;
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
-  --accent: #f4f4f5;
-  --accent-foreground: #18181b;
-  --destructive: #ef4444;
-  --destructive-foreground: #fafafa;
-  --border: #e4e4e7;
-  --input: #e4e4e7;
-  --ring: #18181b;
+  --background: #060907;
+  --foreground: #d9f5e2;
+  --card: #0b120d;
+  --card-foreground: #d9f5e2;
+  --popover: #0b120d;
+  --popover-foreground: #d9f5e2;
+  --primary: #39ff88;
+  --primary-foreground: #04170b;
+  --secondary: #ffb020;
+  --secondary-foreground: #1a0f00;
+  --muted: #101a14;
+  --muted-foreground: #7fa88f;
+  --accent: #123018;
+  --accent-foreground: #baffcf;
+  --destructive: #b8302f;
+  --destructive-foreground: #fff0ee;
+  --border: #1d2b22;
+  --input: #1d2b22;
+  --ring: #39ff88;
   --radius: 0.5rem;
 }
 
 .dark {
-  --background: #09090b;
-  --foreground: #fafafa;
-  --card: #09090b;
-  --card-foreground: #fafafa;
-  --popover: #09090b;
-  --popover-foreground: #fafafa;
-  --primary: #fafafa;
-  --primary-foreground: #18181b;
-  --secondary: #27272a;
-  --secondary-foreground: #fafafa;
-  --muted: #27272a;
-  --muted-foreground: #a1a1aa;
-  --accent: #27272a;
-  --accent-foreground: #fafafa;
-  --destructive: #7f1d1d;
-  --destructive-foreground: #fafafa;
-  --border: #27272a;
-  --input: #27272a;
-  --ring: #d4d4d8;
+  --background: #060907;
+  --foreground: #d9f5e2;
+  --card: #0b120d;
+  --card-foreground: #d9f5e2;
+  --popover: #0b120d;
+  --popover-foreground: #d9f5e2;
+  --primary: #39ff88;
+  --primary-foreground: #04170b;
+  --secondary: #ffb020;
+  --secondary-foreground: #1a0f00;
+  --muted: #101a14;
+  --muted-foreground: #7fa88f;
+  --accent: #123018;
+  --accent-foreground: #baffcf;
+  --destructive: #b8302f;
+  --destructive-foreground: #fff0ee;
+  --border: #1d2b22;
+  --input: #1d2b22;
+  --ring: #39ff88;
 }
 
 @theme inline {
@@ -73,10 +73,122 @@
   --radius-xl: calc(var(--radius) + 4px);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-terminal: var(--font-share-tech-mono);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+/* --- CRT scanline overlay: sits above all page content, non-interactive --- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 1px,
+    rgba(57, 255, 136, 0.035) 2px,
+    rgba(0, 0, 0, 0) 3px
+  );
+  mix-blend-mode: overlay;
+  animation: crt-flicker 7s infinite;
+}
+
+/* --- Vignette: darkens edges like an old monitor's glass --- */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0) 55%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+@keyframes crt-flicker {
+  0%,
+  96%,
+  100% {
+    opacity: 1;
+  }
+  97% {
+    opacity: 0.85;
+  }
+  98% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0.9;
+  }
+}
+
+/* --- Blinking terminal cursor, append to any inline element --- */
+@keyframes blink-cursor {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  46%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink::after {
+  content: "▌";
+  display: inline-block;
+  margin-left: 0.15em;
+  color: var(--primary);
+  animation: blink-cursor 1s steps(1) infinite;
+}
+
+/* --- Glitch flicker for headings --- */
+@keyframes glitch-flicker {
+  0%,
+  92%,
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  93% {
+    opacity: 0.55;
+    transform: translateX(1px);
+  }
+  95% {
+    opacity: 1;
+    transform: translateX(-1px);
+  }
+  97% {
+    opacity: 0.75;
+    transform: translateX(0);
+  }
+}
+
+.glitch-text {
+  animation: glitch-flicker 6s infinite;
+}
+
+/* --- Soft CRT glow pulse, for accents/buttons/borders --- */
+@keyframes crt-glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 12px color-mix(in srgb, var(--primary) 35%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 22px color-mix(in srgb, var(--primary) 55%, transparent);
+  }
+}
+
+.crt-glow {
+  animation: crt-glow-pulse 3s ease-in-out infinite;
 }

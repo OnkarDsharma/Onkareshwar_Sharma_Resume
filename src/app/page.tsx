@@ -2,6 +2,7 @@ import Image from "next/image";
 import AnimatedCardStack, {
   type AnimatedProjectCardItem,
 } from "@/components/ui/animate-card-animation";
+import DivergenceMeter from "@/components/ui/divergence-meter";
 import { WebGLShader } from "@/components/ui/web-gl-shader";
 
 const projectCards: AnimatedProjectCardItem[] = [
@@ -106,14 +107,17 @@ const skillGroups = [
   {
     title: "Frontend",
     items: ["HTML", "CSS", "JavaScript", "React.js"],
+    value: 82.4061,
   },
   {
     title: "Backend",
     items: ["Python", "Flask", "Django", "REST APIs"],
+    value: 88.1725,
   },
   {
     title: "Databases",
     items: ["MySQL", "PostgreSQL", "MongoDB", "Redis"],
+    value: 79.9538,
   },
   {
     title: "AI / ML",
@@ -126,10 +130,12 @@ const skillGroups = [
       "NumPy",
       "Matplotlib",
     ],
+    value: 91.0480,
   },
   {
     title: "Tools & DevOps",
     items: ["Git", "GitHub", "Linux", "VS Code", "Render", "AWS", "Postman", "Stripe"],
+    value: 85.6237,
   },
 ];
 
@@ -181,32 +187,38 @@ const contactLinks = [
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-black text-white">
-      <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_20%_18%,rgba(255,255,255,0.08),transparent_24%),radial-gradient(circle_at_78%_85%,rgba(255,190,120,0.12),transparent_24%),linear-gradient(180deg,#060606_0%,#090909_35%,#040404_100%)]" />
-      <div className="pointer-events-none fixed inset-0 z-0 opacity-95">
+      <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_20%_18%,rgba(57,255,136,0.10),transparent_24%),radial-gradient(circle_at_78%_85%,rgba(255,176,32,0.10),transparent_24%),linear-gradient(180deg,#050705_0%,#070907_35%,#030402_100%)]" />
+      <div className="pointer-events-none fixed inset-0 z-0 opacity-80">
         <WebGLShader />
       </div>
       <div className="pointer-events-none fixed inset-0 z-10 bg-[linear-gradient(180deg,rgba(0,0,0,0.36),rgba(0,0,0,0.12)_22%,rgba(0,0,0,0.22)_60%,rgba(0,0,0,0.42)_100%)]" />
 
-      <header className="sticky top-0 z-40 border-b border-white/10 bg-black/30 backdrop-blur-xl">
+      <header className="sticky top-0 z-40 border-b border-primary/20 bg-black/40 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <a href="#hero" className="text-sm font-semibold tracking-[0.24em] text-white/90">
-            ONKARESHWAR SHARMA
+          <a
+            href="#hero"
+            className="font-terminal text-xs tracking-[0.28em] text-primary sm:text-sm"
+          >
+            LAB.MEM_004{" "}
+            <span className="text-foreground/60">
+              // ONKARESHWAR SHARMA
+            </span>
           </a>
-          <nav className="hidden items-center gap-6 text-sm text-white/60 md:flex">
-            <a href="#projects" className="transition hover:text-white">
-              Projects
+          <nav className="hidden items-center gap-6 font-terminal text-xs uppercase tracking-[0.18em] text-muted-foreground md:flex">
+            <a href="#projects" className="transition hover:text-primary">
+              [ Experiments ]
             </a>
-            <a href="#skills" className="transition hover:text-white">
-              Skills
+            <a href="#skills" className="transition hover:text-primary">
+              [ Divergence ]
             </a>
-            <a href="#about" className="transition hover:text-white">
-              About
+            <a href="#about" className="transition hover:text-primary">
+              [ Dossier ]
             </a>
-            <a href="#experience" className="transition hover:text-white">
-              Experience
+            <a href="#experience" className="transition hover:text-primary">
+              [ Worldline ]
             </a>
-            <a href="#contact" className="transition hover:text-white">
-              Contact
+            <a href="#contact" className="transition hover:text-primary">
+              [ D-Mail ]
             </a>
           </nav>
         </div>
@@ -215,37 +227,46 @@ export default function Home() {
       <section id="hero" className="relative z-20">
         <div className="mx-auto flex min-h-[calc(100vh-73px)] max-w-7xl items-center justify-center px-6 py-20">
           <div className="max-w-4xl text-center">
-            <div className="mb-6 inline-flex items-center rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.24em] text-emerald-300">
-              Available for projects and internships
+            <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-primary/40 bg-primary/10 px-4 py-2 font-terminal text-xs uppercase tracking-[0.24em] text-primary">
+              <span className="crt-glow h-2 w-2 rounded-full bg-primary" />
+              Status: Online — Available for Experiments
             </div>
-            <p className="text-sm font-medium uppercase tracking-[0.24em] text-white/55">
-              Hello, I&apos;m
+
+            <p className="font-terminal text-sm uppercase tracking-[0.3em] text-muted-foreground">
+              {"> "}Accessing Lab Member File
+              <span className="cursor-blink" />
             </p>
-            <h1 className="mt-4 text-5xl font-black leading-[0.95] tracking-tight sm:text-6xl lg:text-7xl">
+
+            <h1 className="glitch-text mt-4 font-terminal text-5xl font-normal leading-[0.95] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
               Onkareshwar Sharma
             </h1>
-            <p className="mt-6 text-sm font-medium uppercase tracking-[0.2em] text-white/60 sm:text-base">
-              Full Stack Developer and AIML Enthusiast
+
+            <p className="mt-6 font-terminal text-xs uppercase tracking-[0.25em] text-secondary sm:text-sm">
+              Full Stack Developer &amp; AI/ML Researcher — Future Gadget Lab
             </p>
-            <div className="mt-9 flex flex-wrap justify-center gap-4">
+            <p className="mt-2 text-[11px] uppercase tracking-[0.3em] text-muted-foreground/60">
+              Worldline Observed: 1.048596%
+            </p>
+
+            <div className="mt-9 flex flex-wrap justify-center gap-4 font-terminal text-xs uppercase tracking-[0.15em]">
               <a
                 href="#projects"
-                className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-zinc-200"
+                className="rounded-sm border border-primary/50 bg-primary/10 px-6 py-3 text-primary transition hover:bg-primary/20"
               >
-                View My Work
+                [ View Experiments ]
               </a>
               <a
                 href="#contact"
-                className="rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+                className="rounded-sm border border-border px-6 py-3 text-foreground/80 transition hover:border-primary/50 hover:text-primary"
               >
-                Get in Touch
+                [ Send a D-Mail ]
               </a>
               <a
                 href="/Onkareshwar_Sharma_Resume.pdf"
                 download
-                className="rounded-full border border-cyan-300/60 bg-gradient-to-r from-cyan-400/35 to-emerald-400/30 px-6 py-3 text-sm font-semibold text-white shadow-[0_0_24px_rgba(34,211,238,0.35)] transition hover:from-cyan-300/45 hover:to-emerald-300/40"
+                className="crt-glow rounded-sm border border-secondary/50 bg-secondary/10 px-6 py-3 text-secondary transition hover:bg-secondary/20"
               >
-                Download Resume
+                [ Download Dossier ]
               </a>
             </div>
           </div>
@@ -258,67 +279,60 @@ export default function Home() {
         <div className="grid gap-20 lg:grid-cols-2 lg:gap-12">
           <div>
             <div className="mb-12 max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/45">
-                Projects
+              <p className="font-terminal text-sm uppercase tracking-[0.22em] text-primary/60">
+                {"> "}Experiment Log
               </p>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-                Built to solve real problems
+              <h2 className="mt-4 font-terminal text-3xl font-normal tracking-tight text-foreground sm:text-4xl">
+                Logged Experiments
               </h2>
-              <p className="mt-4 text-base leading-8 text-white/60">
-                AI systems, production software, and products designed for impact, not tutorials or clones.
+              <p className="mt-4 text-base leading-8 text-foreground/60">
+                AI systems, production software, and products designed for
+                impact, not tutorials or clones. Each entry below is a
+                documented experiment — hypothesis, method, and observed
+                results.
               </p>
             </div>
 
-            <AnimatedCardStack projects={projectCards} />
+            <AnimatedCardStack projects={projectCards} logPrefix="EXP" />
           </div>
 
           <div id="open-source">
             <div className="mb-12 max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/45">
-                Open Source
+              <p className="font-terminal text-sm uppercase tracking-[0.22em] text-secondary/60">
+                {"> "}Transmission Log
               </p>
-              <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-                Code shipped to production
+              <h2 className="mt-4 font-terminal text-3xl font-normal tracking-tight text-foreground sm:text-4xl">
+                D-Mails to Other Worldlines
               </h2>
-              <p className="mt-4 text-base leading-8 text-white/60">
-                Contributing to real-world codebases, collaborating with maintainers, and shipping reviewed changes.
+              <p className="mt-4 text-base leading-8 text-foreground/60">
+                Small changes sent into codebases that weren&apos;t mine to
+                begin with — contributing to real-world projects,
+                collaborating with maintainers, and shipping reviewed changes.
               </p>
             </div>
 
-            <AnimatedCardStack projects={openSourceCards} />
+            <AnimatedCardStack projects={openSourceCards} logPrefix="D-MAIL" />
           </div>
         </div>
       </section>
 
 
-      <section id="skills" className="relative z-20 border-y border-white/10 bg-black/12">
+      <section id="skills" className="relative z-20 border-y border-primary/10 bg-black/20">
         <div className="mx-auto max-w-7xl px-6 py-24">
           <div className="mb-12 max-w-3xl">
-            <p className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <p className="font-terminal text-sm uppercase tracking-[0.22em] text-primary/60">
+              {"> "}Divergence Meter
+            </p>
+            <h2 className="mt-4 font-terminal text-3xl font-normal tracking-tight text-foreground sm:text-4xl">
               Skills
+            </h2>
+            <p className="mt-4 text-base leading-8 text-foreground/60">
+              Reading levels across each domain — the tools and stacks that
+              hold steady no matter which worldline I&apos;m building in.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-5">
-            {skillGroups.map((group) => (
-              <div
-                key={group.title}
-                className="rounded-[1.6rem] border border-white/10 bg-black/35 p-5 backdrop-blur-md"
-              >
-                <h3 className="text-lg font-semibold text-white">{group.title}</h3>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-full bg-white/[0.05] px-3 py-2 text-sm text-white/72"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+          <DivergenceMeter groups={skillGroups} />
         </div>
       </section>
 

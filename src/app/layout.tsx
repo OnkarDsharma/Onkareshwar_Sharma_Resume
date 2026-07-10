@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Share_Tech_Mono } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -12,9 +12,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const shareTechMono = Share_Tech_Mono({
+  variable: "--font-share-tech-mono",
+  weight: "400",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   title: "Onkareshwar Sharma | Full Stack Developer",
-  description: "Portfolio of Onkareshwar Sharma — Full Stack Developer specializing in AI/ML, Web Development, and SaaS platforms.",
+  description:
+    "Portfolio of Onkareshwar Sharma — Full Stack Developer specializing in AI/ML, Web Development, and SaaS platforms.",
 };
 
 export default function RootLayout({
@@ -25,7 +32,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${shareTechMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
