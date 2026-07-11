@@ -3,6 +3,8 @@ import AnimatedCardStack, {
   type AnimatedProjectCardItem,
 } from "@/components/ui/animate-card-animation";
 import DivergenceMeter from "@/components/ui/divergence-meter";
+import DivergenceReadout from "@/components/ui/divergence-readout";
+import WorldlineChart from "@/components/ui/worldline-chart";
 import { WebGLShader } from "@/components/ui/web-gl-shader";
 
 const projectCards: AnimatedProjectCardItem[] = [
@@ -186,66 +188,31 @@ const contactLinks = [
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-black text-white">
+    <main className="relative min-h-screen overflow-x-hidden bg-black text-foreground">
       <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_20%_18%,rgba(57,255,136,0.10),transparent_24%),radial-gradient(circle_at_78%_85%,rgba(255,176,32,0.10),transparent_24%),linear-gradient(180deg,#050705_0%,#070907_35%,#030402_100%)]" />
       <div className="pointer-events-none fixed inset-0 z-0 opacity-80">
         <WebGLShader />
       </div>
-      <div className="pointer-events-none fixed inset-0 z-10 bg-[linear-gradient(180deg,rgba(0,0,0,0.36),rgba(0,0,0,0.12)_22%,rgba(0,0,0,0.22)_60%,rgba(0,0,0,0.42)_100%)]" />
-
-      <header className="sticky top-0 z-40 border-b border-primary/20 bg-black/40 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <a
-            href="#hero"
-            className="font-terminal text-xs tracking-[0.28em] text-primary sm:text-sm"
-          >
-            LAB.MEM_004{" "}
-            <span className="text-foreground/60">
-              // ONKARESHWAR SHARMA
-            </span>
-          </a>
-          <nav className="hidden items-center gap-6 font-terminal text-xs uppercase tracking-[0.18em] text-muted-foreground md:flex">
-            <a href="#projects" className="transition hover:text-primary">
-              [ Experiments ]
-            </a>
-            <a href="#skills" className="transition hover:text-primary">
-              [ Divergence ]
-            </a>
-            <a href="#about" className="transition hover:text-primary">
-              [ Dossier ]
-            </a>
-            <a href="#experience" className="transition hover:text-primary">
-              [ Worldline ]
-            </a>
-            <a href="#contact" className="transition hover:text-primary">
-              [ D-Mail ]
-            </a>
-          </nav>
-        </div>
-      </header>
+      <div className="pointer-events-none fixed inset-0 z-10 bg-[linear-gradient(180deg,rgba(0,0,0,0.55),rgba(0,0,0,0.35)_22%,rgba(0,0,0,0.42)_60%,rgba(0,0,0,0.6)_100%)]" />
 
       <section id="hero" className="relative z-20">
-        <div className="mx-auto flex min-h-[calc(100vh-73px)] max-w-7xl items-center justify-center px-6 py-20">
+        <div className="mx-auto flex min-h-screen max-w-7xl items-center justify-center px-6 py-20">
           <div className="max-w-4xl text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-sm border border-primary/40 bg-primary/10 px-4 py-2 font-terminal text-xs uppercase tracking-[0.24em] text-primary">
+            <div className="mb-8 inline-flex items-center gap-2 rounded-sm border border-primary/40 bg-black/70 px-4 py-2 font-terminal text-xs uppercase tracking-[0.24em] text-primary backdrop-blur-sm">
               <span className="crt-glow h-2 w-2 rounded-full bg-primary" />
-              Status: Online — Available for Experiments
+              Available for Projects and Internships
             </div>
 
-            <p className="font-terminal text-sm uppercase tracking-[0.3em] text-muted-foreground">
-              {"> "}Accessing Lab Member File
-              <span className="cursor-blink" />
+            <p className="font-terminal text-sm uppercase tracking-[0.24em] text-muted-foreground">
+              Hello, I&apos;m
             </p>
 
-            <h1 className="glitch-text mt-4 font-terminal text-5xl font-normal leading-[0.95] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+            <h1 className="glitch-text mt-4 font-terminal text-5xl font-normal leading-[0.95] tracking-tight text-foreground drop-shadow-[0_2px_18px_rgba(0,0,0,0.85)] sm:text-6xl lg:text-7xl">
               Onkareshwar Sharma
             </h1>
 
             <p className="mt-6 font-terminal text-xs uppercase tracking-[0.25em] text-secondary sm:text-sm">
-              Full Stack Developer &amp; AI/ML Researcher — Future Gadget Lab
-            </p>
-            <p className="mt-2 text-[11px] uppercase tracking-[0.3em] text-muted-foreground/60">
-              Worldline Observed: 1.048596%
+              Full Stack Developer &amp; AI/ML Enthusiast
             </p>
 
             <div className="mt-9 flex flex-wrap justify-center gap-4 font-terminal text-xs uppercase tracking-[0.15em]">
@@ -253,20 +220,20 @@ export default function Home() {
                 href="#projects"
                 className="rounded-sm border border-primary/50 bg-primary/10 px-6 py-3 text-primary transition hover:bg-primary/20"
               >
-                [ View Experiments ]
+                View Projects
               </a>
               <a
                 href="#contact"
                 className="rounded-sm border border-border px-6 py-3 text-foreground/80 transition hover:border-primary/50 hover:text-primary"
               >
-                [ Send a D-Mail ]
+                Get in Touch
               </a>
               <a
                 href="/Onkareshwar_Sharma_Resume.pdf"
                 download
                 className="crt-glow rounded-sm border border-secondary/50 bg-secondary/10 px-6 py-3 text-secondary transition hover:bg-secondary/20"
               >
-                [ Download Dossier ]
+                Download Resume
               </a>
             </div>
           </div>
@@ -279,17 +246,15 @@ export default function Home() {
         <div className="grid gap-20 lg:grid-cols-2 lg:gap-12">
           <div>
             <div className="mb-12 max-w-3xl">
-              <p className="font-terminal text-sm uppercase tracking-[0.22em] text-primary/60">
-                {"> "}Experiment Log
+              <p className="font-terminal text-xs uppercase tracking-[0.22em] text-primary/50">
+                Projects
               </p>
               <h2 className="mt-4 font-terminal text-3xl font-normal tracking-tight text-foreground sm:text-4xl">
-                Logged Experiments
+                Strong builds over filler projects
               </h2>
-              <p className="mt-4 text-base leading-8 text-foreground/60">
+              <p className="mt-4 text-base leading-8 text-foreground/85">
                 AI systems, production software, and products designed for
-                impact, not tutorials or clones. Each entry below is a
-                documented experiment — hypothesis, method, and observed
-                results.
+                impact, not tutorials or clones.
               </p>
             </div>
 
@@ -298,16 +263,15 @@ export default function Home() {
 
           <div id="open-source">
             <div className="mb-12 max-w-3xl">
-              <p className="font-terminal text-sm uppercase tracking-[0.22em] text-secondary/60">
-                {"> "}Transmission Log
+              <p className="font-terminal text-xs uppercase tracking-[0.22em] text-secondary/50">
+                Open Source
               </p>
               <h2 className="mt-4 font-terminal text-3xl font-normal tracking-tight text-foreground sm:text-4xl">
-                D-Mails to Other Worldlines
+                Code shipped to production
               </h2>
-              <p className="mt-4 text-base leading-8 text-foreground/60">
-                Small changes sent into codebases that weren&apos;t mine to
-                begin with — contributing to real-world projects,
-                collaborating with maintainers, and shipping reviewed changes.
+              <p className="mt-4 text-base leading-8 text-foreground/85">
+                Contributing to real-world codebases, collaborating with
+                maintainers, and shipping reviewed changes.
               </p>
             </div>
 
@@ -317,18 +281,17 @@ export default function Home() {
       </section>
 
 
-      <section id="skills" className="relative z-20 border-y border-primary/10 bg-black/20">
+      <section id="skills" className="relative z-20 border-y border-primary/10 bg-black/35">
         <div className="mx-auto max-w-7xl px-6 py-24">
           <div className="mb-12 max-w-3xl">
-            <p className="font-terminal text-sm uppercase tracking-[0.22em] text-primary/60">
-              {"> "}Divergence Meter
+            <p className="font-terminal text-xs uppercase tracking-[0.22em] text-primary/50">
+              Skills
             </p>
             <h2 className="mt-4 font-terminal text-3xl font-normal tracking-tight text-foreground sm:text-4xl">
-              Skills
+              Tools I work with
             </h2>
-            <p className="mt-4 text-base leading-8 text-foreground/60">
-              Reading levels across each domain — the tools and stacks that
-              hold steady no matter which worldline I&apos;m building in.
+            <p className="mt-4 text-base leading-8 text-foreground/85">
+              Core languages, frameworks, and tools across the stack.
             </p>
           </div>
 
@@ -338,34 +301,43 @@ export default function Home() {
 
       <section id="about" className="relative z-20 mx-auto max-w-7xl px-6 py-24">
         <div className="mb-12 max-w-3xl">
-          <p className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            About Me
+          <p className="font-terminal text-xs uppercase tracking-[0.22em] text-primary/50">
+            About
           </p>
+          <h2 className="mt-4 font-terminal text-3xl font-normal tracking-tight text-foreground sm:text-4xl">
+            About Me
+          </h2>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="space-y-6">
-            <div className="rounded-[1.8rem] border border-white/10 bg-black/35 p-6 backdrop-blur-md">
-              <h3 className="text-xl font-semibold text-white">Background</h3>
-              <p className="mt-4 text-base leading-8 text-white/68">
+            <div className="rounded-[1.8rem] border border-primary/15 bg-black/60 p-6 backdrop-blur-md">
+              <h3 className="font-terminal text-xl font-normal text-foreground">
+                Background
+              </h3>
+              <p className="mt-4 text-base leading-8 text-foreground/82">
                 I build practical systems at the intersection of software
                 engineering and AI. My portfolio leans into useful products:
                 experiences that reduce friction, improve outcomes, and stay
                 production-minded.
               </p>
             </div>
-            <div className="rounded-[1.8rem] border border-white/10 bg-black/35 p-6 backdrop-blur-md">
-              <h3 className="text-xl font-semibold text-white">Education</h3>
-              <p className="mt-4 text-base leading-8 text-white/68">
+            <div className="rounded-[1.8rem] border border-primary/15 bg-black/60 p-6 backdrop-blur-md">
+              <h3 className="font-terminal text-xl font-normal text-foreground">
+                Education
+              </h3>
+              <p className="mt-4 text-base leading-8 text-foreground/82">
                 I&apos;m pursuing B.Tech in Computer Science and Engineering at
                 IIIT Naya Raipur, with a strong focus on full stack
                 development, AI/ML applications, and production-oriented
                 software systems.
               </p>
             </div>
-            <div className="rounded-[1.8rem] border border-white/10 bg-black/35 p-6 backdrop-blur-md">
-              <h3 className="text-xl font-semibold text-white">Approach</h3>
-              <p className="mt-4 text-base leading-8 text-white/68">
+            <div className="rounded-[1.8rem] border border-primary/15 bg-black/60 p-6 backdrop-blur-md">
+              <h3 className="font-terminal text-xl font-normal text-foreground">
+                Approach
+              </h3>
+              <p className="mt-4 text-base leading-8 text-foreground/82">
                 I care about clean architecture, user clarity, and solving the
                 real problem instead of just shipping features. Whether I&apos;m
                 working on OCR validation, SaaS billing flows, or model-backed
@@ -373,9 +345,11 @@ export default function Home() {
                 maintainable, and production-minded.
               </p>
             </div>
-            <div className="rounded-[1.8rem] border border-white/10 bg-black/35 p-6 backdrop-blur-md">
-              <h3 className="text-xl font-semibold text-white">Beyond Tech</h3>
-              <p className="mt-4 text-base leading-8 text-white/68">
+            <div className="rounded-[1.8rem] border border-secondary/15 bg-black/60 p-6 backdrop-blur-md">
+              <h3 className="font-terminal text-xl font-normal text-foreground">
+                Beyond Tech
+              </h3>
+              <p className="mt-4 text-base leading-8 text-foreground/82">
                 I also lead the Art Society at my institute. That creative side
                 shows up in how I think about visual communication, design
                 polish, and presenting technical work in a memorable way.
@@ -383,8 +357,8 @@ export default function Home() {
             </div>
           </div>
 
-          <aside className="rounded-[2rem] border border-white/10 bg-black/35 p-8 backdrop-blur-md">
-            <div className="relative mx-auto h-40 w-40 overflow-hidden rounded-full border border-white/15 bg-white/5">
+          <aside className="rounded-[2rem] border border-primary/15 bg-black/60 p-8 backdrop-blur-md">
+            <div className="crt-glow relative mx-auto h-40 w-40 overflow-hidden rounded-full border-2 border-primary/40 bg-black/40">
               <Image
                 src="/Screenshot 2026-04-06 020330.png"
                 alt="Onkareshwar Sharma"
@@ -395,29 +369,29 @@ export default function Home() {
               />
             </div>
             <div className="mt-8 space-y-4">
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
-                <p className="text-xs uppercase tracking-[0.18em] text-white/45">
+              <div className="rounded-2xl border border-primary/10 bg-primary/[0.03] p-4">
+                <p className="font-terminal text-xs uppercase tracking-[0.18em] text-primary/55">
                   Currently
                 </p>
-                <p className="mt-2 text-sm leading-7 text-white/72">
+                <p className="mt-2 text-sm leading-7 text-foreground/85">
                   Open to software engineering internships and project
                   collaborations.
                 </p>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
-                <p className="text-xs uppercase tracking-[0.18em] text-white/45">
+              <div className="rounded-2xl border border-primary/10 bg-primary/[0.03] p-4">
+                <p className="font-terminal text-xs uppercase tracking-[0.18em] text-primary/55">
                   Strengths
                 </p>
-                <p className="mt-2 text-sm leading-7 text-white/72">
+                <p className="mt-2 text-sm leading-7 text-foreground/85">
                   Product thinking, system design instincts, technical
                   storytelling, and rapid iteration.
                 </p>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
-                <p className="text-xs uppercase tracking-[0.18em] text-white/45">
-                  Personal note
+              <div className="rounded-2xl border border-secondary/10 bg-secondary/[0.03] p-4">
+                <p className="font-terminal text-xs uppercase tracking-[0.18em] text-secondary/60">
+                  Personal Note
                 </p>
-                <p className="mt-2 text-sm leading-7 text-white/72">
+                <p className="mt-2 text-sm leading-7 text-foreground/85">
                   Art, leadership, and visual design all influence how I build
                   software experiences.
                 </p>
@@ -427,46 +401,24 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="experience" className="relative z-20 border-y border-white/10 bg-black/12">
+      <section id="experience" className="relative z-20 border-y border-primary/10 bg-black/35">
         <div className="mx-auto max-w-7xl px-6 py-24">
           <div className="mb-12 max-w-3xl">
-            <p className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Highlights
+            <p className="font-terminal text-xs uppercase tracking-[0.22em] text-primary/50">
+              Experience
             </p>
+            <h2 className="mt-4 font-terminal text-3xl font-normal tracking-tight text-foreground sm:text-4xl">
+              Highlights
+            </h2>
           </div>
 
-          <div className="space-y-5">
-            {experienceItems.map((item) => (
-              <article
-                key={`${item.title}-${item.period}`}
-                className="rounded-[1.8rem] border border-white/10 bg-black/35 p-6 backdrop-blur-md"
-              >
-                <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-100/70">
-                      {item.label}
-                    </p>
-                    <h3 className="mt-2 text-xl font-semibold text-white">
-                      {item.title}
-                    </h3>
-                    <p className="mt-1 text-sm text-white/55">
-                      {item.organization}
-                    </p>
-                  </div>
-                  <p className="text-sm font-medium text-white/60">{item.period}</p>
-                </div>
-                <p className="mt-4 max-w-4xl text-base leading-8 text-white/68">
-                  {item.details}
-                </p>
-              </article>
-            ))}
-          </div>
+          <WorldlineChart events={experienceItems} />
 
-          <div className="mt-8">
+          <div className="mt-10">
             <a
               href="/Onkareshwar_Sharma_Resume.pdf"
               download
-              className="inline-flex rounded-full border border-white/15 bg-white/8 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/12"
+              className="inline-flex rounded-sm border border-primary/40 bg-primary/10 px-6 py-3 font-terminal text-xs uppercase tracking-[0.15em] text-primary transition hover:bg-primary/20"
             >
               Download One-Page Resume
             </a>
@@ -476,28 +428,33 @@ export default function Home() {
 
       <section id="contact" className="relative z-20 mx-auto max-w-7xl px-6 py-24">
         <div className="mb-12 max-w-3xl">
-          <p className="text-3xl font-bold uppercase tracking-[0.08em] text-white sm:text-4xl">
+          <p className="font-terminal text-xs uppercase tracking-[0.22em] text-primary/50">
             Contact
           </p>
-          <p className="mt-4 text-base leading-8 text-white/60">
+          <h2 className="mt-4 font-terminal text-3xl font-normal tracking-tight text-foreground sm:text-4xl">
+            Get in Touch
+          </h2>
+          <p className="mt-4 text-base leading-8 text-foreground/85">
             If you&apos;re hiring for a software engineering, full stack, or
             product-focused development role, I&apos;d love to connect.
           </p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
-          <div className="rounded-[2rem] border border-white/10 bg-black/35 p-6 backdrop-blur-md">
-            <h3 className="text-xl font-semibold text-white">Start the conversation</h3>
-            <p className="mt-4 text-base leading-8 text-white/68">
-              The fastest path is LinkedIn. If you want to review my
-              work first, you can also open my GitHub profile or download my
+          <div className="rounded-[2rem] border border-primary/15 bg-black/60 p-6 backdrop-blur-md">
+            <h3 className="font-terminal text-xl font-normal text-foreground">
+              Start the conversation
+            </h3>
+            <p className="mt-4 text-base leading-8 text-foreground/82">
+              The fastest path is LinkedIn. If you want to review my work
+              first, you can also open my GitHub profile or download my
               resume directly.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3 font-terminal text-xs uppercase tracking-[0.14em]">
               <a
                 href="/Onkareshwar_Sharma_Resume.pdf"
                 download
-                className="rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-white/8"
+                className="rounded-sm border border-primary/40 bg-primary/10 px-5 py-2.5 text-primary transition hover:bg-primary/20"
               >
                 Download Resume
               </a>
@@ -515,12 +472,12 @@ export default function Home() {
                     ? "noopener noreferrer"
                     : undefined
                 }
-                className="rounded-[1.6rem] border border-white/10 bg-black/35 p-5 backdrop-blur-md transition hover:border-white/20 hover:bg-white/[0.05]"
+                className="rounded-[1.6rem] border border-primary/15 bg-black/60 p-5 backdrop-blur-md transition hover:border-primary/40 hover:bg-primary/[0.05]"
               >
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/45">
+                <p className="font-terminal text-xs uppercase tracking-[0.18em] text-primary/60">
                   {contact.label}
                 </p>
-                <p className="mt-3 text-sm leading-7 text-white/78">
+                <p className="mt-3 text-sm leading-7 text-foreground/85">
                   {contact.value}
                 </p>
               </a>
@@ -528,6 +485,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <DivergenceReadout />
     </main>
   );
 }

@@ -44,7 +44,7 @@ function MeterBar({ group, index }: { group: DivergenceGroup; index: number }) {
         {group.items.map((item) => (
           <span
             key={item}
-            className="rounded-full border border-primary/10 bg-primary/[0.04] px-3 py-1.5 text-xs font-medium text-foreground/70"
+            className="rounded-full border border-primary/10 bg-primary/[0.04] px-3 py-1.5 text-xs font-medium text-foreground/82"
           >
             {item}
           </span>

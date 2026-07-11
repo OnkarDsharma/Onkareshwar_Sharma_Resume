@@ -59,31 +59,31 @@ function ProjectCardContent({
 
       <div className="grid gap-4 px-1 pb-1 sm:grid-cols-[1.25fr_0.75fr]">
         <div>
-          <p className="text-sm leading-7 text-foreground/72">
+          <p className="text-sm leading-7 text-foreground/85">
             {project.summary}
           </p>
           <div className="mt-4 grid gap-3">
             <div className="rounded-2xl border border-primary/10 bg-primary/[0.03] p-4">
               <p className="font-terminal text-xs uppercase tracking-[0.18em] text-primary/55">
-                Hypothesis
+                Problem
               </p>
-              <p className="mt-2 text-sm leading-7 text-foreground/68">
+              <p className="mt-2 text-sm leading-7 text-foreground/82">
                 {project.problem}
               </p>
             </div>
             <div className="rounded-2xl border border-primary/10 bg-primary/[0.03] p-4">
               <p className="font-terminal text-xs uppercase tracking-[0.18em] text-primary/55">
-                Method
+                Solution
               </p>
-              <p className="mt-2 text-sm leading-7 text-foreground/68">
+              <p className="mt-2 text-sm leading-7 text-foreground/82">
                 {project.solution}
               </p>
             </div>
             <div className="rounded-2xl border border-primary/10 bg-primary/[0.03] p-4">
               <p className="font-terminal text-xs uppercase tracking-[0.18em] text-primary/55">
-                Researcher&apos;s Role
+                Role
               </p>
-              <p className="mt-2 text-sm leading-7 text-foreground/68">
+              <p className="mt-2 text-sm leading-7 text-foreground/82">
                 {project.role}
               </p>
             </div>
@@ -93,7 +93,7 @@ function ProjectCardContent({
         <div className="flex flex-col justify-between rounded-[1.5rem] border border-primary/10 bg-primary/[0.03] p-4">
           <div>
             <p className="mb-2 font-terminal text-[11px] uppercase tracking-[0.18em] text-secondary/70">
-              Observed Results
+              Impact
             </p>
             <div className="flex flex-wrap gap-2">
               {project.impact.map((item) => (
@@ -110,7 +110,7 @@ function ProjectCardContent({
               {project.stack.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-primary/10 bg-black/25 px-3 py-1.5 text-xs font-medium text-foreground/72"
+                  className="rounded-full border border-primary/10 bg-black/25 px-3 py-1.5 text-xs font-medium text-foreground/85"
                 >
                   {item}
                 </span>
@@ -128,7 +128,7 @@ function ProjectCardContent({
               <GitBranch className="h-4 w-4" />
               Source Code
             </a>
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 px-4 py-2.5 text-foreground/65">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/15 px-4 py-2.5 text-foreground/80">
               <Layers3 className="h-4 w-4" />
               Interactive Stack
             </div>
@@ -164,7 +164,7 @@ function PreviewCard({
       type="button"
       onClick={(event) => onOpen(index, event)}
       className={cn(
-        "[grid-area:stack] relative flex h-48 w-full max-w-[26rem] -skew-y-[8deg] flex-col justify-between rounded-xl border-2 border-primary/15 bg-black/70 px-6 py-5 text-left backdrop-blur-sm transition-all duration-500 ease-out hover:z-40 hover:skew-y-0 hover:border-primary/50 hover:bg-black/85",
+        "[grid-area:stack] relative flex h-48 w-full max-w-[26rem] -skew-y-[8deg] flex-col justify-between rounded-xl border-2 border-primary/15 bg-black/80 px-6 py-5 text-left backdrop-blur-sm transition-all duration-500 ease-out hover:z-40 hover:skew-y-0 hover:border-primary/50 hover:bg-black/85",
         stackOffsets[index]
       )}
     >
@@ -179,7 +179,7 @@ function PreviewCard({
       <p className="font-terminal text-2xl font-normal text-foreground">
         {project.title}
       </p>
-      <p className="line-clamp-2 text-sm text-foreground/55">
+      <p className="line-clamp-2 text-sm text-foreground/75">
         {project.summary}
       </p>
     </button>
@@ -246,7 +246,7 @@ export default function AnimatedCardStack({
             <button
               type="button"
               onClick={() => setOpenIndex(null)}
-              className="absolute right-4 top-4 z-10 rounded-full border border-primary/20 bg-black/50 p-2 text-foreground/70 transition hover:bg-black/80 hover:text-primary"
+              className="absolute right-4 top-4 z-10 rounded-full border border-primary/20 bg-black/50 p-2 text-foreground/82 transition hover:bg-black/80 hover:text-primary"
             >
               <X className="h-4 w-4" />
             </button>
