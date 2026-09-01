@@ -192,3 +192,10 @@ body::after {
 .crt-glow {
   animation: crt-glow-pulse 3s ease-in-out infinite;
 }
+
+/* --- Continuous rotation, used by the pixel clock hands --- */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

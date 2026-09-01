@@ -4,8 +4,9 @@ import AnimatedCardStack, {
 } from "@/components/ui/animate-card-animation";
 import DivergenceMeter from "@/components/ui/divergence-meter";
 import DivergenceReadout from "@/components/ui/divergence-readout";
+import PixelClock from "@/components/ui/pixel-clock";
+import TextureBackdrop from "@/components/ui/texture-backdrop";
 import WorldlineChart from "@/components/ui/worldline-chart";
-import { WebGLShader } from "@/components/ui/web-gl-shader";
 
 const projectCards: AnimatedProjectCardItem[] = [
   {
@@ -109,17 +110,14 @@ const skillGroups = [
   {
     title: "Frontend",
     items: ["HTML", "CSS", "JavaScript", "React.js"],
-    value: 82.4061,
   },
   {
     title: "Backend",
     items: ["Python", "Flask", "Django", "REST APIs"],
-    value: 88.1725,
   },
   {
     title: "Databases",
     items: ["MySQL", "PostgreSQL", "MongoDB", "Redis"],
-    value: 79.9538,
   },
   {
     title: "AI / ML",
@@ -132,12 +130,10 @@ const skillGroups = [
       "NumPy",
       "Matplotlib",
     ],
-    value: 91.0480,
   },
   {
     title: "Tools & DevOps",
     items: ["Git", "GitHub", "Linux", "VS Code", "Render", "AWS", "Postman", "Stripe"],
-    value: 85.6237,
   },
 ];
 
@@ -189,55 +185,178 @@ const contactLinks = [
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-x-hidden bg-black text-foreground">
-      <div className="pointer-events-none fixed inset-0 z-0 bg-[radial-gradient(circle_at_20%_18%,rgba(57,255,136,0.10),transparent_24%),radial-gradient(circle_at_78%_85%,rgba(255,176,32,0.10),transparent_24%),linear-gradient(180deg,#050705_0%,#070907_35%,#030402_100%)]" />
-      <div className="pointer-events-none fixed inset-0 z-0 opacity-80">
-        <WebGLShader />
-      </div>
-      <div className="pointer-events-none fixed inset-0 z-10 bg-[linear-gradient(180deg,rgba(0,0,0,0.55),rgba(0,0,0,0.35)_22%,rgba(0,0,0,0.42)_60%,rgba(0,0,0,0.6)_100%)]" />
+      <section id="hero" className="relative overflow-hidden">
+        <TextureBackdrop />
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          {/* faint centered giant, sits at the very back for depth behind the text */}
+          <PixelClock
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-15"
+            size={860}
+            rotate={6}
+            hourDuration={90}
+            minuteDuration={22}
+          />
 
-      <section id="hero" className="relative z-20">
-        <div className="mx-auto flex min-h-screen max-w-7xl items-center justify-center px-6 py-20">
-          <div className="max-w-4xl text-center">
-            <div className="mb-8 inline-flex items-center gap-2 rounded-sm border border-primary/40 bg-black/70 px-4 py-2 font-terminal text-xs uppercase tracking-[0.24em] text-primary backdrop-blur-sm">
-              <span className="crt-glow h-2 w-2 rounded-full bg-primary" />
-              Available for Projects and Internships
-            </div>
+          {/* top-left cluster: two large ones stacked, a third overlapping both */}
+          <PixelClock
+            className="absolute -left-28 -top-24"
+            size={650}
+            rotate={-16}
+            hourDuration={72}
+            minuteDuration={18}
+          />
+          <PixelClock
+            className="absolute left-[4%] -top-6"
+            size={320}
+            rotate={12}
+            hourDuration={44}
+            minuteDuration={11}
+          />
+          <PixelClock
+            className="absolute -left-4 top-[2%]"
+            size={590}
+            rotate={22}
+            hourDuration={58}
+            minuteDuration={15}
+          />
 
-            <p className="font-terminal text-sm uppercase tracking-[0.24em] text-muted-foreground">
-              Hello, I&apos;m
+          {/* top-right cluster */}
+          <PixelClock
+            className="absolute -right-32 -top-20"
+            size={700}
+            rotate={18}
+            hourDuration={60}
+            minuteDuration={15}
+          />
+          <PixelClock
+            className="absolute right-[2%] top-[8%]"
+            size={340}
+            rotate={-16}
+            hourDuration={50}
+            minuteDuration={12}
+          />
+          <PixelClock
+            className="absolute right-[26%] -top-8"
+            size={260}
+            rotate={-9}
+            hourDuration={40}
+            minuteDuration={10}
+          />
+
+          {/* scattered mid-frame fillers */}
+          <PixelClock
+            className="absolute left-[16%] top-[38%]"
+            size={230}
+            rotate={-26}
+            hourDuration={38}
+            minuteDuration={9}
+          />
+          <PixelClock
+            className="absolute right-[6%] top-[32%]"
+            size={380}
+            rotate={9}
+            hourDuration={54}
+            minuteDuration={13}
+          />
+          <PixelClock
+            className="absolute left-[38%] top-[10%]"
+            size={300}
+            rotate={-11}
+            hourDuration={48}
+            minuteDuration={12}
+          />
+          <PixelClock
+            className="absolute right-[32%] bottom-[12%]"
+            size={340}
+            rotate={19}
+            hourDuration={52}
+            minuteDuration={13}
+          />
+
+          {/* bottom-left cluster */}
+          <PixelClock
+            className="absolute -left-24 -bottom-28"
+            size={680}
+            rotate={13}
+            hourDuration={66}
+            minuteDuration={16}
+          />
+          <PixelClock
+            className="absolute left-[7%] -bottom-6"
+            size={340}
+            rotate={-20}
+            hourDuration={46}
+            minuteDuration={11}
+          />
+          <PixelClock
+            className="absolute left-[27%] bottom-[6%]"
+            size={260}
+            rotate={17}
+            hourDuration={42}
+            minuteDuration={10}
+          />
+
+          {/* bottom-right cluster */}
+          <PixelClock
+            className="absolute -right-28 -bottom-32"
+            size={620}
+            rotate={-24}
+            hourDuration={56}
+            minuteDuration={14}
+          />
+          <PixelClock
+            className="absolute right-[8%] -bottom-4"
+            size={360}
+            rotate={24}
+            hourDuration={48}
+            minuteDuration={11}
+          />
+        </div>
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(3,4,3,0.55)_0%,rgba(3,4,3,0.15)_45%,rgba(3,4,3,0)_70%)]" />
+
+        <div className="relative z-10 mx-auto flex min-h-screen max-w-4xl flex-col items-center justify-center px-6 py-24 text-center">
+          <h1 className="font-terminal text-5xl font-normal leading-[0.95] tracking-tight text-foreground drop-shadow-[0_2px_18px_rgba(0,0,0,0.85)] sm:text-6xl lg:text-7xl">
+            Onkareshwar Sharma
+          </h1>
+          <p className="mt-4 font-terminal text-xs uppercase tracking-[0.25em] text-secondary sm:text-sm">
+            Full Stack Developer &amp; AI/ML Enthusiast
+          </p>
+
+          <div className="mt-10 w-full max-w-xl rounded-2xl bg-black/70 p-6 text-left backdrop-blur-md">
+            <p className="font-terminal text-xs uppercase tracking-[0.18em] text-primary/70">
+              tl;dr
             </p>
-
-            <h1 className="glitch-text mt-4 font-terminal text-5xl font-normal leading-[0.95] tracking-tight text-foreground drop-shadow-[0_2px_18px_rgba(0,0,0,0.85)] sm:text-6xl lg:text-7xl">
-              Onkareshwar Sharma
-            </h1>
-
-            <p className="mt-6 font-terminal text-xs uppercase tracking-[0.25em] text-secondary sm:text-sm">
-              Full Stack Developer &amp; AI/ML Enthusiast
+            <p className="mt-3 text-base leading-7 text-foreground/88">
+              I build practical software at the intersection of engineering
+              and AI — currently pursuing a B.Tech in CSE at IIIT Naya Raipur.
+              I care about clean architecture and shipping things that
+              actually work. Outside of code, I lead the Art Society on
+              campus.
             </p>
+          </div>
 
-            <div className="mt-9 flex flex-wrap justify-center gap-4 font-terminal text-xs uppercase tracking-[0.15em]">
-              <a
-                href="#projects"
-                className="rounded-sm border border-primary/50 bg-primary/10 px-6 py-3 text-primary transition hover:bg-primary/20"
-              >
-                View Projects
-              </a>
-              <a
-                href="#contact"
-                className="rounded-sm border border-border px-6 py-3 text-foreground/80 transition hover:border-primary/50 hover:text-primary"
-              >
-                Get in Touch
-              </a>
-              <a
-                href="/Onkareshwar_Sharma_Resume.pdf"
-                download
-                className="crt-glow rounded-sm border border-secondary/50 bg-secondary/10 px-6 py-3 text-secondary transition hover:bg-secondary/20"
-              >
-                Download Resume
-              </a>
+          <div className="mt-8 flex flex-wrap justify-center gap-4 font-terminal text-xs uppercase tracking-[0.15em]">
+            <a
+              href="#projects"
+              className="rounded-sm border border-primary/50 bg-primary/10 px-6 py-3 text-primary transition hover:bg-primary/20"
+            >
+              View Projects
+            </a>
+            <a
+              href="#contact"
+              className="rounded-sm border border-border px-6 py-3 text-foreground/80 transition hover:border-primary/50 hover:text-primary"
+            >
+              Get in Touch
+            </a>
+            <a
+              href="/Onkareshwar_Sharma_Resume.pdf"
+              download
+              className="crt-glow rounded-sm border border-secondary/50 bg-secondary/10 px-6 py-3 text-secondary transition hover:bg-secondary/20"
+            >
+              Download Resume
+            </a>
             </div>
           </div>
-        </div>
       </section>
 
 
